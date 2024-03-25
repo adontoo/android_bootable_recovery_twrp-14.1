@@ -25,6 +25,7 @@ ifeq ($(TW_INCLUDE_CRYPTO_FBE), true)
         android.hardware.keymaster@3.0 \
         android.hardware.keymaster@4.0 \
         android.hardware.keymaster@4.1 \
+        android.hardware.weaver-V2-ndk \
         android.hardware.weaver@1.0 \
         android.security.apc-ndk \
         android.system.keystore2-V4-ndk \

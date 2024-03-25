@@ -349,6 +349,7 @@ ifeq ($(TW_INCLUDE_CRYPTO), true)
         lib_android_keymaster_keymint_utils \
         android.hardware.gatekeeper-V1-ndk \
         android.hardware.gatekeeper@1.0 \
+        android.hardware.weaver-V2-ndk \
         android.hardware.weaver@1.0 \
         android.frameworks.stats@1.0 \
         android.security.maintenance-ndk \
