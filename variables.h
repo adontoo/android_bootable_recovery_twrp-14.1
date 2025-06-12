@@ -21,6 +21,8 @@
 #define TW_VERSION_STR TW_MAIN_VERSION_STR TW_DEVICE_VERSION
 #define TW_PERSIST_DIR              "/persist/TWRP"
 #define TW_SETTINGS_FILE            ".twrps_yuk"
+#define TW_SCREEN_TOUCH_X           1368
+#define TW_SCREEN_TOUCH_Y           3192
 #define TW_RECOVERY_NAME            "TWRP"
 #define TW_DEFAULT_RECOVERY_FOLDER  "/" TW_RECOVERY_NAME
 #define TW_STORAGE_PATH             "/data/recovery/"

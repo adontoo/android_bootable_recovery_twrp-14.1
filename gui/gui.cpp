@@ -52,6 +52,8 @@ extern "C"
 #include "blanktimer.hpp"
 #include "tw_atomic.hpp"
 
+#include <android-base/properties.h>
+
 // Enable to print render time of each frame to the log file
 //#define PRINT_RENDER_TIME 1
 
@@ -83,6 +85,8 @@ int select_fd = 0;
 static int gRecorder = -1;
 
 extern "C" void gr_write_frame_to_file(int fd);
+
+static uint32_t touch_mapping = android::base::GetIntProperty("vendor.screen.touch_mapping", 0);
 
 static void flip(void)
 {
@@ -271,7 +275,16 @@ void InputHandler::process_EV_ABS(input_event& ev)
 {
 	x = ev.value >> 16;
 	y = ev.value & 0xFFFF;
-
+	if(touch_mapping == 1)
+	{
+		if((ev.value >> 16) > TW_SCREEN_TOUCH_X || (ev.value & 0xFFFF) > TW_SCREEN_TOUCH_Y)
+		{
+			x = (ev.value >> 16) / 10;
+			y = (ev.value & 0xFFFF) / 10;
+			LOGINFO("adontoo x = : %d, y = %d\n", x, y);
+		}
+	}
+	
 	if (ev.code == 0)
 	{
 #ifndef TW_USE_KEY_CODE_TOUCH_SYNC
